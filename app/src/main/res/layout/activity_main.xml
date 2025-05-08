@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    android:padding="16dp">
+
+    <!-- Tombol Back -->
+<!--    <ImageView-->
+<!--        android:id="@+id/backButton"-->
+<!--        android:layout_width="52dp"-->
+<!--        android:layout_height="52dp"-->
+<!--        android:src="@drawable/left"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        android:layout_gravity="start"-->
+<!--        android:layout_marginTop="8dp" />-->
+
+    <!-- Judul Login -->
+    <TextView
+        android:id="@+id/loginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Login"
+        android:textSize="32sp"
+        android:fontFamily="@font/merienda_bold"
+        android:layout_marginTop="8dp" />
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/lofo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp" />
+
+    <!-- Username Label -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textSize="18sp"
+        android:fontFamily="@font/merienda_light"
+        android:layout_marginTop="32dp" />
+
+    <!-- Username Input -->
+    <EditText
+        android:id="@+id/usernameInput"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Masukkan Username"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Password Label -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textSize="18sp"
+        android:fontFamily="@font/merienda_light"
+        android:layout_marginTop="24dp" />
+
+    <!-- Password Input dengan Toggle -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <EditText
+            android:id="@+id/passwordInput"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/rounded_edittext"
+            android:hint="Masukkan Password"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:paddingEnd="48dp" />
+
+        <ImageView
+            android:id="@+id/togglePasswordVisibility"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/eye_off"
+            android:layout_alignEnd="@id/passwordInput"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="4dp"
+            android:clickable="true"
+            android:focusable="true" />
+    </RelativeLayout>
+
+    <!-- Tombol Login -->
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="#FF0000"
+        android:text="Login"
+        android:textSize="20sp"
+        android:fontFamily="@font/merienda_bold"
+        android:textColor="#FFFFFF" />
+
+    <!-- Link Lupa Password -->
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lupa Password?"
+        android:textSize="14sp"
+        android:textColor="#0088FF"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/merienda" />
+
+</LinearLayout>
