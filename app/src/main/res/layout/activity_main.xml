@@ -5,18 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F5F5F5"
-    android:padding="16dp">
-
-    <!-- Tombol Back -->
-<!--    <ImageView-->
-<!--        android:id="@+id/backButton"-->
-<!--        android:layout_width="52dp"-->
-<!--        android:layout_height="52dp"-->
-<!--        android:src="@drawable/left"-->
-<!--        android:clickable="true"-->
-<!--        android:focusable="true"-->
-<!--        android:layout_gravity="start"-->
-<!--        android:layout_marginTop="8dp" />-->
+    android:padding="16dp">\
 
     <!-- Judul Login -->
     <TextView
