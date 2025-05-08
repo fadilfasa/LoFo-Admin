@@ -5,7 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.lofoadmin.R
+import com.example.lofo_admin.R
 
 class LaporanHilang : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -28,7 +28,7 @@
             android:name=".KelolaAkun"
             android:exported="false" />
         <activity
-            android:name=".dashboardAdmin"
+            android:name=".DashboardAdmin"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

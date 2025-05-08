@@ -8,9 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.lofoadmin.R
+import com.example.lofo_admin.R
 
-class LoginActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var usernameInput: EditText
     private lateinit var passwordInput: EditText
@@ -62,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
         if (username == "admin" && password == "admin123") {
             Toast.makeText(this, "Login berhasil sebagai Admin", Toast.LENGTH_SHORT).show()
             // Arahkan ke halaman admin
-            val intent = Intent(this, dashboardAdmin::class.java)
+            val intent = Intent(this, DashboardAdmin::class.java)
             startActivity(intent)
             finish()
         } else {

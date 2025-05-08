@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.lofoadmin"
+    namespace = "com.example.lofo_admin"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.lofoadmin"
+        applicationId = "com.example.lofo_admin"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
