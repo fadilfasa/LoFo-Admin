@@ -13,10 +13,7 @@
         android:theme="@style/Theme.LoFoAdmin"
         tools:targetApi="31">
         <activity
-            android:name=".LaporanTemuan"
-            android:exported="false" />
-        <activity
-            android:name=".LaporanHilang"
+            android:name=".EditLaporan"
             android:exported="false" />
         <activity
             android:name=".VerifikasiTemuan"
@@ -25,7 +22,34 @@
             android:name=".VerifikasiHilang"
             android:exported="false" />
         <activity
+            android:name=".LaporanTemuan"
+            android:exported="false" />
+        <activity
+            android:name=".LaporanHilang"
+            android:exported="false" />
+        <activity
             android:name=".KelolaAkun"
+            android:exported="false" />
+        <activity
+            android:name=".UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".ListLaporanTemuan"
+            android:exported="false" />
+        <activity
+            android:name=".ListLaporanHilang"
+            android:exported="false" />
+        <activity
+            android:name=".ListVerifikasiTemuan"
+            android:exported="false" />
+        <activity
+            android:name=".ListVerifikasiHilang"
+            android:exported="false" />
+        <activity
+            android:name=".ListKelolaAkun"
             android:exported="false" />
         <activity
             android:name=".DashboardAdmin"

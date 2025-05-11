@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5">
+    android:background="#F5F5F5"
+    android:fitsSystemWindows="true">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,11 +15,19 @@
         android:background="#C8BE8C"
         android:padding="10dp">
 
+        <ImageView
+            android:id="@+id/backImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/left"/>
+
+
         <TextView
             android:id="@+id/titleDashboard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="4dp"
             android:text="Dashboard Admin"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -120,13 +130,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="JUMLAH VERIFIKASI\nBarang Hilang"
-                        android:textColor="#000000"
+                        android:textColor="#FFFFFF"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Lihat Detail >>"
+                        android:textColor="#FFFFFF"
                         android:textSize="12sp"
                         android:layout_marginTop="8dp" />
                 </LinearLayout>
@@ -136,7 +147,7 @@
                     android:layout_height="wrap_content"
                     android:text="0"
                     android:textSize="32sp"
-                    android:textColor="#000000"
+                    android:textColor="#FFFFFF"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="16dp"/>
             </LinearLayout>
