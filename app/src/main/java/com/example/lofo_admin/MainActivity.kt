@@ -8,7 +8,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.LoFo.data.api.ApiClient
 import com.example.lofo_admin.R
+import com.example.lofo_admin.model.AdminRequest
+import com.example.lofo_admin.model.SharedPrefHelper
+import com.example.lofo_admin.model.adminResponse
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,7 +43,40 @@ class MainActivity : AppCompatActivity() {
         }
 
         loginButton.setOnClickListener {
-            handleLogin()
+            val adminInput = usernameInput.text.toString()
+            val passInput = passwordInput.text.toString()
+            val request = AdminRequest(adminInput, passInput)
+
+            ApiClient.apiService.loginUser(request).enqueue(object : Callback<adminResponse> {
+                override fun onResponse(
+                    call: Call<adminResponse>,
+                    response: Response<adminResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val loginResponse = response.body()
+                        val user = loginResponse?.lofoadmin
+                        val token = loginResponse?.token
+                        SharedPrefHelper.saveString(this@MainActivity, "TOKEN", token ?: "")
+                        SharedPrefHelper.saveBoolean(this@MainActivity, "IS_LOGGED_IN", true)
+                        SharedPrefHelper.saveUser(this@MainActivity, user)
+                        SharedPrefHelper.saveToken(this@MainActivity, token ?: "")
+
+                        Toast.makeText(this@MainActivity, "Login berhasil!", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@MainActivity, DashboardAdmin::class.java))
+                    } else {
+                        val errorBody = response.errorBody()?.string()
+                        errorBody?.let {
+                            val jsonObj = JSONObject(it)
+                            val errorMessage = jsonObj.getString("message")
+                            Toast.makeText(this@MainActivity, "Login gagal: $errorMessage", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<adminResponse>, t: Throwable) {
+                    Toast.makeText(this@MainActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
         }
 
         forgotPassword.setOnClickListener {
@@ -55,20 +96,6 @@ class MainActivity : AppCompatActivity() {
         passwordInput.setSelection(passwordInput.text.length)
     }
 
-    private fun handleLogin() {
-        val username = usernameInput.text.toString()
-        val password = passwordInput.text.toString()
-
-        if (username == "admin" && password == "admin123") {
-            Toast.makeText(this, "Login berhasil sebagai Admin", Toast.LENGTH_SHORT).show()
-            // Arahkan ke halaman admin
-            val intent = Intent(this, DashboardAdmin::class.java)
-            startActivity(intent)
-            finish()
-        } else {
-            Toast.makeText(this, "Username atau Password salah", Toast.LENGTH_SHORT).show()
-        }
-    }
 }
 
 

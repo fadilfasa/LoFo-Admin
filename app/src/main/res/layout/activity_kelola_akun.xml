@@ -50,7 +50,7 @@
         android:padding="4dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_heroes"
+            android:id="@+id/recyclerViewUser"
             tools:listitem="@layout/activity_list_kelola_akun"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

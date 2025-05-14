@@ -6,21 +6,44 @@ import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import com.example.LoFo.data.api.ApiClient
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class DashboardAdmin : AppCompatActivity() {
+
+    lateinit var jumlahAkunTextView : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_dashboard_admin)
         val cardAkun = findViewById<LinearLayout>(R.id.cardAkun)
+        jumlahAkunTextView= findViewById(R.id.jumlahAkunTextView)
         val cardVerifikasiHilang = findViewById<LinearLayout>(R.id.cardVerifikasiHilang)
         val cardVerifikasiTemuan = findViewById<LinearLayout>(R.id.cardVerifikasiTemuan)
         val cardLaporanHilang = findViewById<LinearLayout>(R.id.cardLaporanHilang)
         val cardLaporanTemuan = findViewById<LinearLayout>(R.id.cardLaporanTemuan)
         val backImage = findViewById<ImageView>(R.id.backImage)
 
+        fetchJumlahAkun()
+
+
         cardAkun.setOnClickListener {
-            startActivity(Intent(this, KelolaAkun::class.java))
+            lifecycleScope.launch {
+                try {
+                    val response = ApiClient.apiService.getAllUser()
+                    val intent = Intent(this@DashboardAdmin, KelolaAkun::class.java)
+                    intent.putParcelableArrayListExtra("dataUser", ArrayList(response))
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    Toast.makeText(this@DashboardAdmin, "Gagal mengambil data / data kosong", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
         cardVerifikasiHilang.setOnClickListener {
@@ -36,7 +59,7 @@ class DashboardAdmin : AppCompatActivity() {
         }
 
         cardLaporanTemuan.setOnClickListener {
-            startActivity(Intent(this, ListLaporanTemuan::class.java))
+            startActivity(Intent(this, LaporanTemuan::class.java))
         }
 
         backImage.setOnClickListener {
@@ -51,6 +74,21 @@ class DashboardAdmin : AppCompatActivity() {
             }
             builder.setNegativeButton("Batal", null)
             builder.show()
+        }
+    }
+    fun fetchJumlahAkun() {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = ApiClient.apiService.getAllUser() // sesuaikan dengan implementasi retrofit kamu
+                val jumlah = response.size
+
+                withContext(Dispatchers.Main) {
+                    jumlahAkunTextView.text = jumlah.toString()
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                // Optional: tampilkan error ke user
+            }
         }
     }
 }
