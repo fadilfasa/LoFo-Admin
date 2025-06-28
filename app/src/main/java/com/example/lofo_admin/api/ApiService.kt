@@ -1,7 +1,11 @@
 package com.example.LoFo.data.api
 
 import com.example.lofo_admin.model.AdminRequest
+import com.example.lofo_admin.model.BarangTemuan.BarangTemuan
+import com.example.lofo_admin.model.BarangTemuan.LaporanBarangTemuan
 import com.example.lofo_admin.model.adminResponse
+import com.example.lofo_admin.model.barangHilang.BarangHilang
+import com.example.lofo_admin.model.barangHilang.LaporanBarangHilang
 import com.example.lofo_admin.model.logout.LogoutRequest
 import com.example.lofo_admin.model.logout.LogoutResponse
 import com.example.lofo_admin.model.user.user
@@ -22,51 +26,43 @@ import retrofit2.http.Query
 interface ApiService {
     @POST("admin/login")
     fun loginUser(@Body request: AdminRequest): Call<adminResponse>
+
     @POST("user/logout")
-    fun logoutUser(@Body request: LogoutRequest) : Call<LogoutResponse>
+    fun logoutUser(@Body request: LogoutRequest): Call<LogoutResponse>
 
     @GET("user/getAll")
     suspend fun getAllUser(): List<user>
 
+    @DELETE("user/delete/{id}")
+    suspend fun deleteUser(@Path("id") id: String): Response<Unit>
 
-//    @Multipart
-//    @PUT("user/update/{id}")
-//    fun updateUser(
-//        @Path("id") id: String,
-//        @PartMap params: Map<String, @JvmSuppressWildcards RequestBody>
-//    ): Call<User>
+    @GET("barang-Hilang/getAll")
+    suspend fun getAllBarangHilang(): List<LaporanBarangHilang>
 
+    @GET("barang-Hilang/getAllVerifikasi")
+    suspend fun getAllVerifikasiHilang(): List<BarangHilang>
 
+    @PUT("barang-Hilang/update/{id}")
+    suspend fun terimaBarangHilang(
+        @Path("id") id: String,
+        @Body updateData: Map<String, String>
+    ): Response<Unit>
 
-//    @PUT("user/update/{id}")
-//    suspend fun updateUser(
-//        @Path("id") id: String,
-//        @Part("username") username: RequestBody,
-//        @Part file: MultipartBody.Part,
-//        @Part("email") email: RequestBody,
-//        @Part("namaLengkap") namaLengkap: RequestBody,
-//        @Part("jenisKelamin") jenisKelamin: RequestBody,
-//        @Part("alamat") alamat: RequestBody,
-//        @Part("noHP") noHP: RequestBody,
-//        @Part("password") password: RequestBody,
-//    ): List<User>
+    @DELETE("barang-Hilang/delete/{id}")
+    suspend fun deleteBarangHilang(@Path("id") id: String): Response<Unit>
 
+    @GET("barang-Temuan/getAll")
+    suspend fun getAllBarangTemuan(): List<LaporanBarangTemuan>
 
+    @GET("barang-Temuan/getAllVerifikasi")
+    suspend fun getAllVerifikasiTemuan(): List<BarangTemuan>
 
-//    @GET("barang-temuan/getMyAll/{id}")
-//    suspend fun getMyAllBarangTemuan( @Path("id") id: String): List<BarangTemuan>
-//
-//    @GET("barang-temuan/getOtherAll/{id}")
-//    suspend fun getOtherAllBarangTemuan(
-//        @Path("id") id: String,
-//        @Query("kategoriBarang") kategoriBarang: String
-//    ): List<BarangTemuan>
+    @PUT("barang-Temuan/update/{id}")
+    suspend fun terimaBarangTemuan(
+        @Path("id") id: String,
+        @Body updateData: Map<String, String>
+    ): Response<Unit>
 
-//    @Multipart
-//    @POST("barang-temuan/upload")
-//    fun uploadBarangTemuan(
-//        @Part file: MultipartBody.Part,
-//        @Part("nama") nama: RequestBody,
-//    ) : Call<ResponseBody>
-
+    @DELETE("barang-Temuan/delete/{id}")
+    suspend fun deleteBarangTemuan(@Path("id") id: String): Response<Unit>
 }

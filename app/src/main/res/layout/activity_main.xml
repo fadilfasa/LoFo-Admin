@@ -99,18 +99,4 @@
         android:fontFamily="@font/merienda_bold"
         android:textColor="#FFFFFF" />
 
-    <!-- Link Lupa Password -->
-    <TextView
-        android:id="@+id/forgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lupa Password?"
-        android:textSize="14sp"
-        android:textColor="#0088FF"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:fontFamily="@font/merienda" />
-
 </LinearLayout>

@@ -1,7 +1,8 @@
-package com.example.lofo_admin
+package com.example.lofo_admin.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -24,7 +25,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var passwordInput: EditText
     private lateinit var togglePasswordVisibility: ImageView
     private lateinit var loginButton: Button
-    private lateinit var forgotPassword: TextView
 
     private var isPasswordVisible = false
 
@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         passwordInput = findViewById(R.id.passwordInput)
         togglePasswordVisibility = findViewById(R.id.togglePasswordVisibility)
         loginButton = findViewById(R.id.loginButton)
-        forgotPassword = findViewById(R.id.forgotPassword)
 
         togglePasswordVisibility.setOnClickListener {
             togglePasswordVisibility()
@@ -78,18 +77,14 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         }
-
-        forgotPassword.setOnClickListener {
-            Toast.makeText(this, "Silakan hubungi administrator untuk reset password.", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun togglePasswordVisibility() {
         if (isPasswordVisible) {
-            passwordInput.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
+            passwordInput.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
             togglePasswordVisibility.setImageResource(R.drawable.eye_off)
         } else {
-            passwordInput.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            passwordInput.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
             togglePasswordVisibility.setImageResource(R.drawable.eye_on)
         }
         isPasswordVisible = !isPasswordVisible
@@ -97,5 +92,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-
-

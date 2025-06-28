@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="4dp"
-            android:text="Dashboard Admin"
+            android:text="Verifikasi Barang Hilang"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="#000000" />
@@ -50,7 +50,7 @@
         android:padding="4dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_heroes"
+            android:id="@+id/recyclerViewVerifikasiTemuan"
             tools:listitem="@layout/activity_list_verifikasi_temuan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

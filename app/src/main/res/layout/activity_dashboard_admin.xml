@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:orientation="horizontal"
-                android:background="#A68A64"
+                android:background="@drawable/rounded_background"
                 android:padding="16dp"
                 android:layout_marginBottom="16dp">
 
@@ -110,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:orientation="horizontal"
-                android:background="#A68A64"
+                android:background="@drawable/rounded_background"
                 android:padding="16dp"
                 android:layout_marginBottom="16dp">
 
@@ -144,6 +144,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/jumlahVerifikasiHilang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -159,7 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:orientation="horizontal"
-                android:background="#A68A64"
+                android:background="@drawable/rounded_background"
                 android:padding="16dp"
                 android:layout_marginBottom="16dp">
 
@@ -193,6 +194,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/jumlahVerifikasiTemuan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -208,7 +210,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:orientation="horizontal"
-                android:background="#A68A64"
+                android:background="@drawable/rounded_background"
                 android:padding="16dp"
                 android:layout_marginBottom="16dp">
 
@@ -242,6 +244,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/jumlahLaporanHilang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -257,7 +260,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:orientation="horizontal"
-                android:background="#A68A64"
+                android:background="@drawable/rounded_background"
                 android:padding="16dp"
                 android:layout_marginBottom="16dp">
 
@@ -291,6 +294,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/jumlahLaporanTemuan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"

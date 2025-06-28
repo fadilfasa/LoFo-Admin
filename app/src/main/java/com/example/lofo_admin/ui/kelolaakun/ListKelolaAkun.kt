@@ -1,19 +1,15 @@
-package com.example.lofo_admin
+package com.example.lofo_admin.ui.kelolaakun
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.lofo_admin.R
 import com.example.lofo_admin.model.user.user
-import com.google.android.material.button.MaterialButton
-
 
 class ListKelolaAkun (
     private val listUser: ArrayList<user>,
@@ -43,6 +39,7 @@ class ListKelolaAkun (
         override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
             val user = listUser[position]
 
+
             holder.username.text = user.username
             holder.email.text = user.email
             holder.namaLengkap.text = user.namaLengkap
@@ -61,9 +58,17 @@ class ListKelolaAkun (
             holder.hapus.setOnClickListener {
                 onHapusClick(user)
             }
+
         }
 
         override fun getItemCount(): Int = listUser.size
+
+    fun removeUser(user: user) {
+        val position = listUser.indexOf(user)
+        if (position != -1) {
+            listUser.removeAt(position)
+            notifyItemRemoved(position)
+        }
+    }
+
 }
-
-

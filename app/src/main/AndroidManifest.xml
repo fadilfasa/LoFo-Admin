@@ -22,44 +22,45 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoFoAdmin"
         tools:targetApi="31">
+
         <activity
             android:name=".EditLaporan"
             android:exported="false" />
         <activity
-            android:name=".VerifikasiTemuan"
+            android:name=".ui.barangtemuan.VerifikasiTemuan"
             android:exported="false" />
         <activity
-            android:name=".VerifikasiHilang"
+            android:name=".ui.baranghilang.VerifikasiHilang"
             android:exported="false" />
         <activity
-            android:name=".LaporanTemuan"
+            android:name=".ui.barangtemuan.LaporanTemuan"
             android:exported="false" />
         <activity
-            android:name=".LaporanHilang"
+            android:name=".ui.baranghilang.LaporanHilang"
             android:exported="false" />
         <activity
-            android:name=".KelolaAkun"
+            android:name=".ui.kelolaakun.KelolaAkun"
             android:exported="false" />
         <activity
-            android:name=".ListLaporanTemuan"
+            android:name=".ui.barangtemuan.ListLaporanTemuan"
             android:exported="false" />
         <activity
-            android:name=".ListLaporanHilang"
+            android:name=".ui.baranghilang.ListLaporanHilang"
             android:exported="false" />
         <activity
-            android:name=".ListVerifikasiTemuan"
+            android:name=".ui.barangtemuan.ListVerifikasiTemuan"
             android:exported="false" />
         <activity
-            android:name=".ListVerifikasiHilang"
+            android:name=".ui.baranghilang.ListVerifikasiHilang"
             android:exported="false" />
         <activity
-            android:name=".ListKelolaAkun"
+            android:name=".ui.kelolaakun.ListKelolaAkun"
             android:exported="false" />
         <activity
-            android:name=".DashboardAdmin"
+            android:name=".ui.DashboardAdmin"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

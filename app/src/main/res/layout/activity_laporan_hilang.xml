@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#F5F5F5"
-    android:fitsSystemWindows="true"
-    >
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,8 +27,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="4dp"
-            android:text="Dashboard Admin"
-            android:textSize="24sp"
+            android:text="Kelola Laporan Barang Hilang"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#000000" />
 
@@ -50,7 +50,7 @@
         android:padding="4dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_heroes"
+            android:id="@+id/recyclerViewLaporanHilang"
             tools:listitem="@layout/activity_list_laporan_hilang"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
